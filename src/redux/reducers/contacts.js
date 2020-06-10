@@ -42,7 +42,7 @@ const initialState = [
 
 export const contacts = createReducer(initialState, {
     [addContact]: (state, action) => {
-        state.push(action.payload)
+       return [... state, action.payload]
     },
     [deleteContact]: (state, action) => 
         state.filter(contact => contact.id !== action.payload)

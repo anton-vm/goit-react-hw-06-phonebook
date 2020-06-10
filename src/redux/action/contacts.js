@@ -1,8 +1,6 @@
-import {ADD_CONTACT, DELETE_CONTACT, FILTER} from '../type/index';
+import { ADD_CONTACT, DELETE_CONTACT, FILTER_CONTACT } from "../type/index";
 import { v4 as uuidv4 } from "uuid";
-import {createAction} from '@reduxjs/toolkit'
-
-
+import { createAction } from "@reduxjs/toolkit";
 
 // export const addContact = ({name, number}) => ({
 //     type: ADD_CONTACT,
@@ -15,12 +13,19 @@ import {createAction} from '@reduxjs/toolkit'
 // })
 
 // export const filter = (value) => ({
-//     type: FILTER,
+//     type: FILTER_CONTACT,
 //     payload: value
 // })
 
 //____with toolkits
 
-export const addContact =createAction("ADD_CONTACT", function prepare({name, number}) {return {payload: {id: uuidv4(), name, number}}})
-export const deleteContact = createAction("DELETE_CONTACT")
-export const filter = createAction("FILTER")
+export const addContact = createAction("ADD_CONTACT", 
+function prepare({
+  name,
+  number,
+}) {
+  return { payload: { id: uuidv4(), name, number } };
+});
+
+export const deleteContact = createAction("DELETE_CONTACT");
+export const filter = createAction("FILTER_CONTACT");
